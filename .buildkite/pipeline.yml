@@ -2,21 +2,22 @@ steps:
   - label: build
     commands:
       - ZZZ=$SCOPE_DSN_ACTIVE make ci-test 
+    env:
+      - SCOPE_DSN_ACTIVE=$SCOPE_DSN
+      - BUILDKITE_REPO
+      - BUILDKITE_COMMIT
+      - BUILDKITE_BUILD_ID
+      - BUILDKITE_BUILD_NUMBER
+      - BUILDKITE_BUILD_URL
+      - BUILDKITE_BUILD_CHECKOUT_PATH
+      - BUILDKITE
     plugins:
       - docker#v3.2.0:
           image: replicated/gitops-builder:buildkite-go12-node10
           always-pull: true
           mount-checkout: true
           workdir: /go/src/github.com/replicatedhq/kots
-          environment:
-            - SCOPE_DSN_ACTIVE=$SCOPE_DSN
-            - BUILDKITE_REPO
-            - BUILDKITE_COMMIT
-            - BUILDKITE_BUILD_ID
-            - BUILDKITE_BUILD_NUMBER
-            - BUILDKITE_BUILD_URL
-            - BUILDKITE_BUILD_CHECKOUT_PATH
-            - BUILDKITE
+          propagate-environment: true
 
   - label: snapshot-release
     commands:
