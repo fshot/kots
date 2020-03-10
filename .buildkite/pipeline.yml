@@ -1,7 +1,7 @@
 steps:
   - label: build
     commands:
-      - SCOPE_DSN=$BUILDKITE_BUILD_URL make ci-test 
+      - ZZZ=$SCOPE_DSN_ACTIVE make ci-test 
     plugins:
       - docker#v3.2.0:
           image: replicated/gitops-builder:buildkite-go12-node10
@@ -9,7 +9,7 @@ steps:
           mount-checkout: true
           workdir: /go/src/github.com/replicatedhq/kots
           environment:
-            - SCOPE_DSN
+            - SCOPE_DSN_ACTIVE:$SCOPE_DSN
             - BUILDKITE_REPO
             - BUILDKITE_COMMIT
             - BUILDKITE_BUILD_ID
