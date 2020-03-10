@@ -1,9 +1,9 @@
 steps:
   - label: build
     commands:
-      - ZZZ=$BUILDKITE_REPO make ci-test 
+      - ZZZ=$SCOPE_DSN_ACTIVE make ci-test 
     env:
-      - SCOPE_DSN_ACTIVE="jjj"
+      - SCOPE_DSN_ACTIVE:jjj
       - BUILDKITE_REPO
       - BUILDKITE_COMMIT
       - BUILDKITE_BUILD_ID
