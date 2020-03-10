@@ -3,7 +3,7 @@ steps:
     commands:
       - ZZZ=$SCOPE_DSN_ACTIVE make ci-test 
     env:
-      - SCOPE_DSN_ACTIVE:${SCOPE_DSN}
+      - SCOPE_DSN_ACTIVE="jjj"
       - BUILDKITE_REPO
       - BUILDKITE_COMMIT
       - BUILDKITE_BUILD_ID
