@@ -45,6 +45,7 @@ integration-cli:
 
 .PHONY: ci-test
 ci-test:
+	env
 	go test -tags "$(BUILDTAGS)" ./pkg/... ./cmd/... ./ffi/... ./integration/... -coverprofile cover.out
 
 .PHONY: kots
