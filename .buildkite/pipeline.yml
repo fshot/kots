@@ -1,7 +1,7 @@
 steps:
   - label: build
     commands:
-      - FSHOT_TEST=$SCOPE_DSN make ci-test
+      - SCOPE_DSN=$BUILDKITE_COMMIT make ci-test 
     plugins:
       - docker#v3.2.0:
           image: replicated/gitops-builder:buildkite-go12-node10
