@@ -9,7 +9,7 @@ steps:
           mount-checkout: true
           workdir: /go/src/github.com/replicatedhq/kots
           environment:
-            - SCOPE_DSN_ACTIVE:$SCOPE_DSN
+            - SCOPE_DSN_ACTIVE=$SCOPE_DSN
             - BUILDKITE_REPO
             - BUILDKITE_COMMIT
             - BUILDKITE_BUILD_ID
